@@ -5,6 +5,24 @@ var http = require('http'),
     io = require('socket.io');
 
 	
+
+	
+	
+var server = http.createServer(function (req, res) {
+
+
+
+}	
+	
+	
 var socket = io.listen(server);
+
+
+
+
+socket.on('connection', function (client) {
+
+}
+
 
 server.listen(3030);
