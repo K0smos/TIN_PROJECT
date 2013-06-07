@@ -29,8 +29,16 @@ var server = http.createServer(function (req, res) {
         break;
     }
 
-});	
+	path.exists(filePath, function (exists) {
 	
+	
+	});
+	
+	
+	
+	
+});	
+
 	
 var socket = io.listen(server);
 
