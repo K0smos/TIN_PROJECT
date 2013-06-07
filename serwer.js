@@ -9,7 +9,12 @@ var http = require('http'),
 	
 	
 var server = http.createServer(function (req, res) {
-
+	'use strict';
+    
+	var filePath = '.' + req.url,
+        contentType = 'text/html',
+        extName;
+		
 
 
 }	
