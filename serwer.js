@@ -4,10 +4,7 @@ var http = require('http'),
     path = require('path'),
     io = require('socket.io');
 
-	
-
-	
-	
+		
 var server = http.createServer(function (req, res) {
 	'use strict';
     
@@ -15,9 +12,24 @@ var server = http.createServer(function (req, res) {
         contentType = 'text/html',
         extName;
 		
+	console.log('request starting...' + filePath);
+    
+	if (filePath === './') {
+        filePath = './index.html';
+    }
+    extName = path.extname(filePath);
+    switch (extName) {
+    
+	case '.js':
+        contentType = 'text/javascript';
+        break;
+    
+	case '.css':
+        contentType = 'text/css';
+        break;
+    }
 
-
-}	
+});	
 	
 	
 var socket = io.listen(server);
