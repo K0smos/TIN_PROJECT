@@ -23,7 +23,10 @@ $(document).ready(function () {
     });
 	
 	socket.on('newTask', function(data){
-	
+		$('#privv').show();
+		$('#piv').html('');
+		$('#piv').show();
+		
 	
 	
 	});
