@@ -24,11 +24,35 @@
 	<div id="addTask">
 	
 	<table>
+	<tr>
+	  <td><label for="nazwa">Zadanie</label></td>
+      <td><input type="text" name="nazwa" id="nazwa" ></td>
+	</tr>
+	 
+	<tr>
+	  <td><label for="termin">Termin</label></td>
+	  <td><input type="date" name="termin" id="termin" ></td>
+	</tr>
 	
+	<tr>
+	  <td><label for="termin">Godzina</label></td>
+	  <td><input type="time" name="tgodzina" id="godzina" ></td>
+	</tr>
+	 
+	<tr> 
+	<td><label for="user">Adresat</label></td> 
+	
+	<td><select name="user" id="user" >
+		<option>wszyscy</option>
+		<option>Marek</option>
+		<option>Robert</option>
+		<option>Kasia</option>
+		<option>Filip</option>
+	</td>
+	</tr>
 	</table>
 	
+	<button id="add">Dodaj</button><br><br>
 	
-</body>
-
-
+	</body>
 </html>
