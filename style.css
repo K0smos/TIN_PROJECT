@@ -40,6 +40,11 @@ left:-20px;
 top:200px;
 width:265px;
 height:152px;
+border-top-right-radius: 19px;
+border-top-left-radius: 19px;
+border-bottom-right-radius: 19px;
+border-bottom-left-radius: 19px;
+color:white;
 }
 
 #login{
