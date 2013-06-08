@@ -26,6 +26,8 @@ $(document).ready(function () {
 		console.log("new task");
         $('#active').html('');
         $('#history').html('');
+		
+		var dzisiaj = new Date();
 	
 	
 	});
