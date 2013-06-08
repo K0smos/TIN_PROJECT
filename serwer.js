@@ -93,16 +93,32 @@ socket.on('connection', function (client) {
     });
 	
 	client.on('change', function (data){
-        if(task[data].status===0){
+        
+		if(task[data].status===0){
             task[data].status=1;
-            client.emit('newTask', task);
+            client.emit('newTask', t
+			ask);
            client.broadcast.emit('newTask', task);
-        }else{
+        
+		}else{
             task[data].status=0;
             client.emit('newTask', task);
            client.broadcast.emit('newTask', task);
         }
     });
+	
+	client.on('delete', function(data){
+        task.splice(data, 1);
+        client.emit('newTask', task);
+        client.broadcast.emit('newTask', task);
+    });
+	
+	function updateTime() {
+		var teraz = new Date();
+		var terazStr = teraz.getHours()+':'+teraz.getMinutes()+':'+teraz.getSeconds();
+		client.emit('newTime', terazStr);
+	}	
+	setInterval(updateTime, 1000);
 	
 });
 
