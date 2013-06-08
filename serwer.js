@@ -53,10 +53,38 @@ var server = http.createServer(function (req, res) {
 	
 var socket = io.listen(server);
 
+var task = [
+    {nazwa: "Wyslac FV", data: "2013-01-31", time: "15:00", user: 'Marek', status: 0},
+    {nazwa: "17ta, sms szef", data: "2013-01-29", time: "13:30", user: 'Marek', status: 0},
+    {nazwa: "Pion, odebrac dokumenty", data: "2013-01-31", time: "20:00", user: 'Robert', status: 0}
+    
+];
+
+var users = [
+    {nazwa: 'Marek'},
+    {nazwa: 'Robert'}
+
+];
+
 socket.on('connection', function (client) {
 	'use strict';
     swch = 0;
-}
+	
+	client.on('setUser', function(data){
+        for(var i=0; i<users.length; i++){
+            if(users[i].nazwa===data){
+                swch = 1;
+            }
+        }
+        if(swch===1){
+            client.emit('newTask', task);
+			client.emit('newTaskPriv', taskPriv);
+        }else{
+            client.emit('zlyLogin', "z³a nazwa u¿ytkownika");
+        }
+    });
+	
+});
 
 
 server.listen(3030);
