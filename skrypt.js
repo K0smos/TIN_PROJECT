@@ -21,12 +21,7 @@ $(document).ready(function () {
 	socket.on('newTime', function(time){
         $('#zegar').html('<br><font size="2">'+time+'</font>');
     });
-
-
-
-
-
-
+	
 	//------------------------------------------------------------------------------------
 	socket.on('newTask', function(data){
 		console.log("new task");
