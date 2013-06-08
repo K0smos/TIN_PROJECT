@@ -4,14 +4,14 @@ var http = require('http'),
     path = require('path'),
     io = require('socket.io');
 
-		
+
 var server = http.createServer(function (req, res) {
 	'use strict';
     
 	var filePath = '.' + req.url,
         contentType = 'text/html',
         extName;
-		
+
 	console.log('request starting...' + filePath);
     
 	if (filePath === './') {
@@ -46,11 +46,11 @@ var server = http.createServer(function (req, res) {
             res.writeHead(404);
             res.end();
         }
-	
+
 	});	
 });	
 
-	
+
 var socket = io.listen(server);
 
 var task = [
@@ -71,7 +71,7 @@ var swch = 0;
 socket.on('connection', function (client) {
 	'use strict';
     swch = 0;
-	
+
 	client.on('setUser', function(data){
         for(var i=0; i<users.length; i++){
             if(users[i].nazwa===data){
@@ -82,16 +82,16 @@ socket.on('connection', function (client) {
             client.emit('newTask', task);
 			client.emit('newTaskPriv', taskPriv);
         }else{
-            client.emit('zlyLogin', "z³a nazwa u¿ytkownika");
+            client.emit('zlyLogin', "z3a nazwa u?ytkownika");
         }
     });
-	
+
 	client.on('addTask', function (data){
         task.push(data);//dodaje do tablicy nowe zadanie
         client.broadcast.emit('newTask', task);
         client.emit('newTask', task);
     });
-	
+
 	client.on('change', function (data){
         
 		if(task[data].status===0){
@@ -106,20 +106,20 @@ socket.on('connection', function (client) {
            client.broadcast.emit('newTask', task);
         }
     });
-	
+
 	client.on('delete', function(data){
         task.splice(data, 1);
         client.emit('newTask', task);
         client.broadcast.emit('newTask', task);
     });
-	
+
 	function updateTime() {
 		var teraz = new Date();
 		var terazStr = teraz.getHours()+':'+teraz.getMinutes()+':'+teraz.getSeconds();
 		client.emit('newTime', terazStr);
 	}	
 	setInterval(updateTime, 1000);
-	
+
 });
 
 
