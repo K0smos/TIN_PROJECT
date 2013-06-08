@@ -15,6 +15,12 @@ left: 0px;
 position:absolute;
 }
 
+#zegar{
+position:absolute;
+right:20px;
+top:-3px;
+font-weight: 700;
+}
 
 #taska{
 position:absolute;
