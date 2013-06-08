@@ -80,7 +80,7 @@ socket.on('connection', function (client) {
         }
         if(swch===1){
             client.emit('newTask', task);
-			client.emit('newTaskPriv', taskPriv);
+			
         }else{
             client.emit('zlyLogin', "z3a nazwa u?ytkownika");
         }
@@ -96,8 +96,7 @@ socket.on('connection', function (client) {
         
 		if(task[data].status===0){
             task[data].status=1;
-            client.emit('newTask', t
-			ask);
+            client.emit('newTask', task);
            client.broadcast.emit('newTask', task);
         
 		}else{

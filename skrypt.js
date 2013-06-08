@@ -69,9 +69,13 @@ $(document).ready(function () {
         $('li #del').click(function (){
             socket.emit('delete', $(this).attr('class'));
         });
-
-
 	});
-
+		$('#userLogin').keypress(function(event){
+		
+		if(event.keyCode===13){
+			socket.emit('setUser', $('#userLogin').val());//po nacisnieciu enter emituje do serwera
+			myName = $('#userLogin').val();
+		}
+	});
 
 });
