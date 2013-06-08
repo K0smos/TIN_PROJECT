@@ -77,5 +77,7 @@ $(document).ready(function () {
 			myName = $('#userLogin').val();
 		}
 	});
+	
+	
 
 });
