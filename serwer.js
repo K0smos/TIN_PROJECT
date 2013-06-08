@@ -66,6 +66,8 @@ var users = [
 
 ];
 
+var swch = 0;
+
 socket.on('connection', function (client) {
 	'use strict';
     swch = 0;
@@ -81,6 +83,24 @@ socket.on('connection', function (client) {
 			client.emit('newTaskPriv', taskPriv);
         }else{
             client.emit('zlyLogin', "z³a nazwa u¿ytkownika");
+        }
+    });
+	
+	client.on('addTask', function (data){
+        task.push(data);//dodaje do tablicy nowe zadanie
+        client.broadcast.emit('newTask', task);
+        client.emit('newTask', task);
+    });
+	
+	client.on('change', function (data){
+        if(task[data].status===0){
+            task[data].status=1;
+            client.emit('newTask', task);
+           client.broadcast.emit('newTask', task);
+        }else{
+            task[data].status=0;
+            client.emit('newTask', task);
+           client.broadcast.emit('newTask', task);
         }
     });
 	
