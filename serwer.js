@@ -47,18 +47,11 @@ var server = http.createServer(function (req, res) {
             res.end();
         }
 	
-	});
-	
-	
-	
-	
+	});	
 });	
 
 	
 var socket = io.listen(server);
-
-
-
 
 socket.on('connection', function (client) {
 	'use strict';
