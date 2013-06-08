@@ -28,18 +28,39 @@ $(document).ready(function () {
         $('#history').html('');
 		
 		var dzisiaj = new Date();
+		var dzisiajStr = dzisiaj.getFullYear() + '-' + dzisiaj.getMonth() + '-' + dzisiaj.getDate();
+		
+		for(var i=0; i<data.length; i++){
+			if(data[i].status===0){
+                var dataZadania = new Date(data[i].data);   
+                var dataZadaniaStr = dataZadania.getFullYear() + '-' + dataZadania.getMonth() + '-' + dataZadania.getDate();
+                
+				if(dzisiajStr>dataZadaniaStr){
+                    
+					if((data[i].user===myName)){
+                        $('#active').append('<li id="'+i+'" class="arv"><div id="pole" class="'+i+'"<p><center>'+data[i].nazwa+'</center><br><b>'+ data[i].data+'&nbsp; '+data[i].time+'</b><span class="user">'+data[i].user+'</span></p></div></li>');
+                    }else{
+                        $('#active').append('<li id="'+i+'" class="arv"><div id="pole" class="'+i+'"<p><center>'+data[i].nazwa+'</center><br><b>'+ data[i].data+'&nbsp; '+data[i].time+'</b><span class="user2">'+data[i].user+'</span></p></div></li>');
+                    }
+                }else{
+                    
+					if(data[i].user===myName){
+                        $('#active').append('<li id="'+i+'"><div id="pole" class="'+i+'"<p><center>'+data[i].nazwa+'</center><br><b>'+ data[i].data+'&nbsp; '+data[i].time+'</b><span class="user">'+data[i].user+'</span></p></div></li>');
+                    
+					}else{
+                        $('#active').append('<li id="'+i+'"><div id="pole" class="'+i+'"<p><center>'+data[i].nazwa+'</center><br><b>'+ data[i].data+'&nbsp; '+data[i].time+'</b><span class="user2">'+data[i].user+'</span></p></div></li>');
+                    }								
+				}
+            
+			}else {
+                $('#history').append('<li id="'+i+'"><div id="pole" class="'+i+'"><p><center>'+data[i].nazwa+'</center><br><b>'+ data[i].data+'</b><span class="user2">'+data[i].user+'</span></p></div>&nbsp;<button id="del" class="'+i+'">-</button></li>');		
+			}
+        }
+	
+	
 	
 	
 	});
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 });
