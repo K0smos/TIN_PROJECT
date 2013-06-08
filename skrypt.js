@@ -60,8 +60,7 @@ $(document).ready(function () {
 		$('#black').hide();
         $('#addTask').show();
         $('#taska').show();
-		
-        $("li #pole").click(function (){
+		snction (){
             socket.emit('change', $(this).attr('class'));
         });
 
