@@ -57,7 +57,17 @@ $(document).ready(function () {
 			}
         }
 	
-	
+		$('#black').hide();
+        $('#addTask').show();
+        $('#taska').show();
+		
+        $("li #pole").click(function (){
+            socket.emit('change', $(this).attr('class'));
+        });
+
+        $('li #del').click(function (){
+            socket.emit('delete', $(this).attr('class'));
+        });
 	
 	
 	});
