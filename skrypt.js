@@ -23,10 +23,9 @@ $(document).ready(function () {
     });
 	
 	socket.on('newTask', function(data){
-		$('#privv').show();
-		$('#piv').html('');
-		$('#piv').show();
-		
+		console.log("new task");
+        $('#active').html('');
+        $('#history').html('');
 	
 	
 	});
