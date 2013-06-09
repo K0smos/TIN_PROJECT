@@ -70,6 +70,7 @@ $(document).ready(function () {
             socket.emit('delete', $(this).attr('class'));
         });
 	});
+		
 		$('#userLogin').keypress(function(event){
 		
 		if(event.keyCode===13){
@@ -78,6 +79,13 @@ $(document).ready(function () {
 		}
 	});
 	
-	
+		$('#add').click(function (){ //dodawanie zadania
+		var nazwa = $('#nazwa').val();  //przypisywanie wartosci
+        var adresat = $('#user').val();
+        var termin= $('#termin').val();
+		var godzina= $('#godzina').val();
+        var status = 0;
+        socket.emit('addTask', {nazwa: nazwa, data: termin, time: godzina, user: adresat, status: status, piv: ''});
+    });
 
 });
