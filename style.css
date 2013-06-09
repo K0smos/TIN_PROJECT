@@ -82,6 +82,18 @@ color: white;
   background: white;
 }
 
+#active li.arv{
+  border: 3px solid red;
+  border-top-right-radius: 19px;
+  border-top-left-radius: 19px;
+  border-bottom-right-radius: 19px;
+  border-bottom-left-radius: 19px;
+}
+
+#active li p span.user{
+  color: red;
+}
+
 #pole{
 margin: 35px;  
 }
