@@ -61,7 +61,6 @@ margin-left: -150px;
 color: white;
 }
 
-
 #active{
   float: left;
   width: 70%;
@@ -70,11 +69,22 @@ color: white;
   padding: 0;
 }
 
+#active li{
+  display: block;
+  width: 90%;
+  border: 3px solid;
+  margin-bottom: 10px;
+  border-top-right-radius: 19px;
+  border-top-left-radius: 19px;
+  border-bottom-right-radius: 19px;
+  border-bottom-left-radius: 19px;
+  cursor: crosshair;
+  background: white;
+}
+
 #pole{
 margin: 35px;  
 }
-
-
 
 img[src="poprawione_logo.bmp"]{
 height:auto;

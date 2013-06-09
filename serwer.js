@@ -62,7 +62,9 @@ var task = [
 
 var users = [
     {nazwa: 'Marek'},
-    {nazwa: 'Robert'}
+    {nazwa: 'Robert'},
+	{nazwa: 'Filip'},
+	{nazwa: 'Kasia'}
 
 ];
 
