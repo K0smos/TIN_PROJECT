@@ -94,6 +94,33 @@ color: white;
   color: red;
 }
 
+#history{
+  float: right;
+  width: 50%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#history li{
+  list-style: none;
+  display: block;
+  width: 90%;
+  border: 3px solid green;
+  margin-bottom: 19px;
+  border-top-right-radius: 19px;
+  border-top-left-radius: 19px;
+  border-bottom-right-radius: 19px;
+  border-bottom-left-radius: 19px;
+  cursor: crosshair;
+  background: white;
+}
+
+.user{
+color: red;
+float:right;
+font-weight: 700;
+}
+
 #pole{
 margin: 35px;  
 }
