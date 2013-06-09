@@ -47,6 +47,11 @@ border-bottom-left-radius: 19px;
 color:white;
 }
 
+#addTask {
+position:absolute;
+left:25px;
+}
+
 #login{
 position:absolute;
 top: 50%;
